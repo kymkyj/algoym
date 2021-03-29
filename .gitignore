@@ -3,6 +3,7 @@
 # IntelliJ project files
 .idea
 .idea/*.xml
+.idea/vcs.xml
 *.iml
 out
 gen
