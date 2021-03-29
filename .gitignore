@@ -1,6 +1,7 @@
 # Project exclude paths
 /out/
 # IntelliJ project files
+/.idea/
 .idea
 .idea/*.xml
 .idea/vcs.xml
