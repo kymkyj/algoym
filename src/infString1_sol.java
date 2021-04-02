@@ -5,9 +5,10 @@ public class infString1_sol {
         int answer = 0;
         str = str.toUpperCase();
         t = Character.toUpperCase(t); // t라는 문자를 대문자로 바꿔주세요!
-        for(int i=0; i<str.length(); i++){
-            if(str.charAt(i) == t) answer++;
-
+        for(char x : str.toCharArray()) { // 향상된 for문에서 이자리는 배열 또는 컬렉션 프레임워크 종류들만 온다.
+            if(x == t){
+                answer++;
+            }
         }
         return answer;
     }
