@@ -25,7 +25,7 @@ public class infBfs2_sol {
 
     public int BFS(int s, int e){
         ch = new int[10001];
-        ch[s] = 1;
+        ch[s] = 1; // 스위치해줄 변수
         Q.offer(s);
         int L = 0; // 루트노드는 0
         while(!Q.isEmpty()){
