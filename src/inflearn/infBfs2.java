@@ -14,14 +14,14 @@ public class infBfs2 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int S = Integer.parseInt(st.nextToken());
         int E = Integer.parseInt(st.nextToken());
-        //System.out.println(BFS(S, E));
-        BFS(S, E);
+        System.out.println(BFS(S, E));
+        //BFS(S, E);
     }
     public static int BFS(int S, int E){
         // 한번의 점프로 뒤로1칸 (-1), 앞으로 1칸(+1), 앞으로 5칸(+5)
         Queue<Integer> q = new LinkedList<>();
         int L = 0; // 레벨을 뜻함
-        boolean check = false;
+        boolean check = false; // 들렸던 곳인지 아닌지 체크변수
         q.offer(S);
         while(!q.isEmpty()){
             int len = q.size();
