@@ -43,13 +43,13 @@ public class boj1260 {
     public static void BFS(int i) {
         Queue<Integer> queue = new LinkedList<Integer>();
         queue.offer(i);
-        visited[i] = 1;
+        visited[i] = 1; // 방문 체크 위해
         System.out.print(i + " ");
         while (!queue.isEmpty()) {
-            int tmp = queue.poll();
+            int tmp = queue.poll(); // 1
 
             for (int j=1; j<=n; j++) {
-                if (graph[tmp][j] == 1 && visited[j] == 0) {
+                if (graph[tmp][j] == 1 && visited[j] == 0) { // 1에 딸려있는 자식노드들 검색
                     queue.offer(j);
                     visited[j] = 1;
                     System.out.print(j + " ");
