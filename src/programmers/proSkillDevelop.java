@@ -13,22 +13,27 @@ public class proSkillDevelop {
         for(int i = 0; i < progresses.length; i++) {
             q.add((100-progresses[i]) % speeds[i] == 0 ?
                   (100 - progresses[i]) / speeds[i] : (100 - progresses[i]) / speeds[i] + 1);
-        }
+        } // 큐에 7, 3, 9 순으로 들어감
 
         List<Integer> result = new ArrayList<Integer>();
         int prev = q.poll();
-        int cnt = 1;
+        int dayCount = 1;
+        /*
+            작업시간을 기준으로 계산한다.
+            처음 큐에서 뽑아낸 작업시간과 그 다음작업시간을 비교하여 클 경우
+            일자를 뒤로 미루는 방식
+         */
         while(!q.isEmpty()) {
             int curr = q.poll();
             if(prev >= curr) {
-                cnt++;
+                dayCount++;
             }else {
-                result.add(cnt);
-                cnt = 1;
+                result.add(dayCount);
+                dayCount = 1;
                 prev = curr;
             }
         }
-        result.add(cnt);
+        result.add(dayCount);
         int[] answer = new int[result.size()];
         for(int i = 0; i < answer.length; i++) {
             answer[i] = result.get(i);
