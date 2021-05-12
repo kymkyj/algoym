@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-
+// 합이 같은 부분집합
 public class infSameSum_sol {
     static String answer = "NO";
     static int n, total = 0; // total도 DFS에서 쓰기위해서 선언
