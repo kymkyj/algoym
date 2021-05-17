@@ -10,8 +10,8 @@ import java.util.StringTokenizer;
 public class infReverseSosu{
     public static boolean isPrime(int num){
         if(num == 1) return false;
-        for(int i=2; i<num; i++){
-            if(num % i == 0) return false;
+        for(int i=2; i<num; i++){ // 2부터 자기자신까지해서
+            if(num % i == 0) return false; // 약수가 존재하게되면 소수가 아니다!
         }
         return true;
     }
@@ -20,6 +20,8 @@ public class infReverseSosu{
         for(int i=0; i<n; i++){
              int tmp = arr[i];
              int res = 0;
+            // 여기부분 생각해내는게 어렵다..
+            // 다른방법으로도 할수 있을듯
              while(tmp > 0){
                  int t=tmp % 10;
                  res = res * 10 + t;
