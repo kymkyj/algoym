@@ -18,10 +18,10 @@ public class infCourseSearchList {
         if(v == n) answer++;
         else{
             // v번째 어레이리스트
-            for(int nextv : graph.get(v)){
+            for(int nextv : graph.get(v)){ // graph.get(v) 하는거는 v번째의 ArrayList를 가리킴
                 if(ch[nextv] == 0){
                     ch[nextv] = 1;
-                    DFS(nextv);
+                    DFS(nextv); // 다음 정점 가리키는 것 체크
                     ch[nextv] = 0;
                 }
             }
