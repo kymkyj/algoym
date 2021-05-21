@@ -12,7 +12,7 @@ public class proOneCache {
         for(String s : cities){
             int pos = -1;
             for(int i=0; i<cacheSize; i++){
-                if(s==cache[i]) {
+                if(s.equalsIgnoreCase(cache[i])) {
                     pos = i; // hit
                 }
             }
@@ -35,7 +35,7 @@ public class proOneCache {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
         //String [] citys = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
-        String [] citys = {"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"};
+        String [] citys = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"};
         proOneCache T = new proOneCache();
         System.out.println(T.solution(n, citys));
     }
