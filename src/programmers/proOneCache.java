@@ -9,6 +9,9 @@ public class proOneCache {
     public int solution(int cacheSize, String[] cities) {
         int answer = 0; // 캐시 수행시간 카운트
         String [] cache = new String[cacheSize];
+        if(cacheSize == 0){
+            return cities.length * 5;
+        }
         for(String s : cities){
             int pos = -1;
             for(int i=0; i<cacheSize; i++){
@@ -35,7 +38,7 @@ public class proOneCache {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
         //String [] citys = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
-        String [] citys = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "SanFrancisco", "Seoul", "Rome", "Paris", "Jeju", "NewYork", "Rome"};
+        String [] citys = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
         proOneCache T = new proOneCache();
         System.out.println(T.solution(n, citys));
     }

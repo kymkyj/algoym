@@ -31,11 +31,11 @@ public class proNewId {
         return s.replaceAll("[.]{2,}", ".");
     }
     public String replaceStartEnd(String s){
-        return s.replaceAll("^[.][.]$", "");
+        return s.replaceAll("^[.]|[.]$", "");
     }
     public String zeroString(String s){
         if(s.equals("")){
-            s += "a";
+            s = "a";
         }
         return s;
 //        return s.equals("") ? s += "a" : s;
