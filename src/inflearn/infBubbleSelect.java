@@ -5,19 +5,17 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// 선택정렬
-public class infSelectList {
-    public static int [] solution(int n, int [] arr) {
-        for (int i = 0; i < n-1; i++) { // 마지막까지는 안봐도 높은 수가 배열되어있기떄문에 안봐도 되서 n-1까지
-            int idx = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[idx]) {
-                    idx = j;
+// 버블 정렬
+public class infBubbleSelect {
+    public static int [] solution(int n, int [] arr){
+        for(int i=0; i<n-1; i++){
+            for(int j=0; j<n-i-1; j++){
+                if(arr[j] > arr[j+1]) { // 앞과 뒤 인접한 두개
+                    int tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
                 }
             }
-            int tmp = arr[i]; // 자바는 자리바꿀때 tmp 사용해서 임시 공간을 두어야함
-            arr[i] = arr[idx];
-            arr[idx] = tmp;
         }
         return arr;
     }
@@ -32,6 +30,5 @@ public class infSelectList {
         for(int i : solution(n, arr)){
             System.out.print(i + " ");
         }
-
     }
 }
