@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.StringTokenizer;
 
 // 동전교환
+// BFS로도 풀수 있을꺼 같은데?
 public class infCoinChange {
     static int n, m, answer = Integer.MAX_VALUE;
     public void DFS(int L, int sum, Integer [] arr){
@@ -29,6 +30,10 @@ public class infCoinChange {
         for(int i=0; i<n; i++){
             arr[i] = Integer.parseInt(st.nextToken());
         }
+        /*
+            내림차순을 해줘야 타임아웃 에러가 안남
+            사유 : 큰 동전을 먼저 경우의 수를 따져서 하면 나머지의 경우는 안봐도 되기 떄문에
+         */
         Arrays.sort(arr, Collections.reverseOrder());
         m = Integer.parseInt(br.readLine());
         infCoinChange T = new infCoinChange();
