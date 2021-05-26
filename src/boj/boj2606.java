@@ -32,7 +32,7 @@ public class boj2606 {
             st = new StringTokenizer(br.readLine());
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
-            graph[a][b] = 1;
+            graph[a][b] = graph[b][a] = 1;
         }
         boj2606 T = new boj2606();
         ch[1] = 1; // 1번노드 체크걸고 시작
