@@ -11,7 +11,7 @@ public class infPermutation {
     static int [] ch, arr, permu;
 
     public void DFS(int L){
-        if(L == m){ // 끝까지 다 돈거니까
+        if(L == m){ // 이렇게 되면 순열이 하나 완성되 상태다!
             for(int x : permu) System.out.print(x + " ");
             System.out.println();
         }else{
@@ -20,7 +20,7 @@ public class infPermutation {
                     ch[i] = 1; // 체크하고
                     permu[L] = arr[i]; // 여기 처음 온순간 permu = {3, ?} 이렇게 3채워짐
                     DFS(L + 1); // L이 1로 증가
-                    ch[i] = 0; // 되돌아갈때 체크된거를 풀어줘야한다. 그래야 추가사용가능
+                    ch[i] = 0; // 되돌아갈때 체크된거를 풀어줘야한다. 그래야 추가사용가
                 }
             }
         }
