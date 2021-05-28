@@ -9,7 +9,12 @@ import java.util.StringTokenizer;
 public class infGradeFirst {
     public static int [] solution(int n, int [] grade){
         int [] answer = new int[n];
-
+        for(int i=0; i<n; i++){
+            answer[i] = 1;
+            for(int j=0; j<n; j++){
+                if(grade[i] < grade[j]) answer[i]++;
+            }
+        }
         return answer;
     }
     public static void main(String[] args) throws IOException {
