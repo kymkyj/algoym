@@ -20,7 +20,13 @@ public class infRecursive4 {
         for(int i=1; i<=n; i++) System.out.print(fibo[i] + " ");
     }
     public static int DFS(int n){
-        if(fibo[n] > 0) return fibo[n]; // 메모이제이션을 활용해서 시간복잡도를 확 줄여버린다!!
+        /*
+            메모이제이션을 활용해서 시간복잡도를 확 줄여버린다!!
+            배열을 선언하면 기본적으로 0으로 초기화 되는데
+            아래와 같이 피보나치를 돌면서 이미 연산한 값이 배열안에 있는지 확인해서 있다면 그값을 리턴해줌으로써 시간을 확 줄인다.
+            이게 바로 메모이제이션!
+         */
+        if(fibo[n] > 0) return fibo[n];
         if(n == 1) return fibo[n] = 1;
         else if(n == 2) return fibo[n] = 1;
         else return fibo[n] = DFS(n-2) + DFS(n-1);
