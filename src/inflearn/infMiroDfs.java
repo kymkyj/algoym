@@ -14,8 +14,7 @@ public class infMiroDfs {
     static int [] dx = {-1, 0, 1, 0};
     static int [] dy = {0, 1, 0, -1};
     static int [][] board; // 미로 정보 담고있는 배열
-//    static int [][] ch; // 움직일 거리 측정
-    static int answer =0;
+    static int answer =0; // 경로 카운트하는 변수
 
     public void DFS(int x, int y){
         if(x==7 && y==7) answer++; // 이러면 종착에 온것
