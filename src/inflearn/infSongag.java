@@ -8,15 +8,7 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 // 송아지 찾기(BFS)
-public class infBfs2 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int S = Integer.parseInt(st.nextToken());
-        int E = Integer.parseInt(st.nextToken());
-        System.out.println(BFS(S, E));
-        //BFS(S, E);
-    }
+public class infSongag {
     public static int BFS(int S, int E){
         // 한번의 점프로 뒤로1칸 (-1), 앞으로 1칸(+1), 앞으로 5칸(+5)
         Queue<Integer> q = new LinkedList<>();
@@ -42,5 +34,14 @@ public class infBfs2 {
             L++;
         }
         return L;
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int S = Integer.parseInt(st.nextToken());
+        int E = Integer.parseInt(st.nextToken());
+        System.out.println(BFS(S, E));
+        //BFS(S, E);
     }
 }

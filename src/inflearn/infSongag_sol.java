@@ -7,21 +7,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class infBfs2_sol {
+public class infSongag_sol {
     int answer = 0;
     int [] dis={1, -1, 5};
     int [] ch;
     Queue<Integer> Q = new LinkedList<>();
-
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int S = Integer.parseInt(st.nextToken());
-        int E = Integer.parseInt(st.nextToken());
-        //System.out.println(BFS(S, E));
-        infBfs2_sol T = new infBfs2_sol();
-        System.out.println(T.BFS(S, E));
-    }
 
     public int BFS(int s, int e){
         ch = new int[10001];
@@ -45,4 +35,15 @@ public class infBfs2_sol {
         }
         return 0;
     }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int S = Integer.parseInt(st.nextToken());
+        int E = Integer.parseInt(st.nextToken());
+        //System.out.println(BFS(S, E));
+        infSongag_sol T = new infSongag_sol();
+        System.out.println(T.BFS(S, E));
+    }
+
 }

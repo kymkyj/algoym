@@ -50,6 +50,10 @@ public class boj1697 {
         StringTokenizer st = new StringTokenizer(br.readLine());
         int n = Integer.parseInt(st.nextToken()); // 수빈위치
         int k = Integer.parseInt(st.nextToken()); // 동생위치
+        if(n==k){ // 만약에 수빈이랑 동생의 위치가 같을 경우에
+            System.out.println(0);
+            return;
+        }
         boj1697 T = new boj1697();
         System.out.println(T.BFS(n, k));
     }
