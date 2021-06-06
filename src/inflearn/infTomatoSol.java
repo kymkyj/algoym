@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 class tomatoPoint{
@@ -39,22 +40,28 @@ public class infTomatoSol {
     }
     public static void main(String[] args) throws IOException {
         infTomatoSol T = new infTomatoSol();
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        m = Integer.parseInt(st.nextToken());
-        n = Integer.parseInt(st.nextToken());
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        n = Integer.parseInt(st.nextToken());
+//        m = Integer.parseInt(st.nextToken());
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
         tomato = new int[n][m];
         dis = new int[n][m];
-        for(int i=0; i<m; i++){
-            st = new StringTokenizer(br.readLine());
-            for(int j=0; j<n; j++){
-                tomato[i][j] = Integer.parseInt(st.nextToken());
+        for(int i=0; i<n; i++){
+//            st = new StringTokenizer(br.readLine());
+            for(int j=0; j<m; j++){
+//                tomato[i][j] = Integer.parseInt(st.nextToken());
+                tomato[i][j] = sc.nextInt();
                 // 시작지점을 확인해서 1인경우 판단되면
                 // 미리 큐에 넣어놓는다.
+                // 출발점이 여러개일 때 미리 큐에 넣어놓고 여기가 1레벨이다 라는걸 나타냄
                 if(tomato[i][j]==1) Q.offer(new tomatoPoint(i, j));
             }
         }
         T.BFS();
+        // 전체가 익지 않는 여부 확인
         boolean flag = true;
         int answer = Integer.MIN_VALUE;
         for(int i=0; i<n; i++){
@@ -62,7 +69,7 @@ public class infTomatoSol {
                 if(tomato[i][j] == 0) flag = false;
             }
         }
-        if(flag){
+        if(flag){ // flag를 기준으로 토마토가 다 익었는지 안익었는지 판단
             for(int i=0; i<n; i++){
                 for(int j=0; j<m; j++){
                     answer = Math.max(answer, dis[i][j]);
@@ -70,6 +77,6 @@ public class infTomatoSol {
             }
             System.out.println(answer);
         }
-        else System.out.println(-1);
+        else System.out.println(-1); // flag가 false로 안익은 토마토가 있는 경우
     }
 }
