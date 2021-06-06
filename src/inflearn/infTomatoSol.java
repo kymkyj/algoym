@@ -40,20 +40,16 @@ public class infTomatoSol {
     }
     public static void main(String[] args) throws IOException {
         infTomatoSol T = new infTomatoSol();
-//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//        StringTokenizer st = new StringTokenizer(br.readLine());
-//        n = Integer.parseInt(st.nextToken());
-//        m = Integer.parseInt(st.nextToken());
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
-        m = sc.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        n = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
         tomato = new int[n][m];
         dis = new int[n][m];
         for(int i=0; i<n; i++){
-//            st = new StringTokenizer(br.readLine());
+            StringTokenizer st2 = new StringTokenizer(br.readLine());
             for(int j=0; j<m; j++){
-//                tomato[i][j] = Integer.parseInt(st.nextToken());
-                tomato[i][j] = sc.nextInt();
+                tomato[i][j] = Integer.parseInt(st2.nextToken());
                 // 시작지점을 확인해서 1인경우 판단되면
                 // 미리 큐에 넣어놓는다.
                 // 출발점이 여러개일 때 미리 큐에 넣어놓고 여기가 1레벨이다 라는걸 나타냄
