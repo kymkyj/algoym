@@ -19,7 +19,7 @@ public class boj9935 {
         while(true){
 
         }
-        return answer;
+        //return answer;
     }
 
     public static void main(String[] args) throws IOException {
