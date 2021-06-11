@@ -23,11 +23,11 @@ import java.util.StringTokenizer;
 public class boj13416 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        List<Integer> list = new ArrayList<>();
         int T = Integer.parseInt(br.readLine());
         for(int i=0; i<T; i++){
             int N = Integer.parseInt(br.readLine());
             int jusic [][] = new int[N][3];
-            List<Integer> list = new ArrayList<>();
             for(int j=0; j<N; j++){
                 StringTokenizer st = new StringTokenizer(br.readLine());
                 for(int k=0; k<3; k++){
@@ -36,21 +36,23 @@ public class boj13416 {
             }
             int index = 0;
             int sum = 0;
-            while(index <= 3){
-                int max = Integer.MIN_VALUE;
-                for(int j=0; j<N; j++){
-                    if(max < jusic[j][index]){
-                        max = jusic[j][index];
+            while(index < N) {
+                int max = 0;
+                for (int j = 0; j < 3; j++) {
+                    if(jusic[index][j] < 0){
+                        continue;
+                    }
+                    if(jusic[index][j] > max){
+                        max = jusic[index][j];
                     }
                 }
                 sum += max;
                 index++;
             }
             list.add(sum);
-
-            for(int k : list){
-                System.out.println(k);
-            }
+        }
+        for(int j=0; j<list.size(); j++){
+            System.out.println(list.get(j));
         }
     }
 }
