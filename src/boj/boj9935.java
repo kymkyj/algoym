@@ -11,21 +11,21 @@ import java.io.InputStreamReader;
  */
 public class boj9935 {
     static String str, bomb;
-    public static String strBomb(String s1, String s2){
-        return s1.replace(s2, "");
-    }
-    public static String solution(String str, String bomb){
-        String answer = "";
-        while(true){
-
+    public static void solution(String str, String bomb){
+        while(str.contains(bomb)){
+            str = str.replace(bomb, "");
+            if(str.length() == 0){
+                System.out.println("FRULA");
+                break;
+            }
         }
-        //return answer;
+        System.out.println(str);
     }
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         str = br.readLine();
         bomb = br.readLine();
-        System.out.println(solution(str, bomb));
+        solution(str, bomb);
     }
 }
