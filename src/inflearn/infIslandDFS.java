@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class infIslandDFS {
     static int answer, n;
-    static int [][] island;
-    static int [] dx = {-1, 0, 1, 0, -1, 1, 1, -1}; // 아일랜드 대각선까지 확인하기 위해..
-    static int [] dy = {0, 1, 0, -1, -1, 1, -1, -1};
+    static int[] dx={-1, -1, 0, 1, 1, 1, 0, -1};
+    static int[] dy={0, 1, 1, 1, 0, -1, -1, -1};
     public void DFS(int x, int y, int [][] island){
         for(int i=0; i<8; i++){
             int nx = x+dx[i];
@@ -34,7 +33,7 @@ public class infIslandDFS {
         infIslandDFS T = new infIslandDFS();
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-        island = new int[n][n];
+        int [][] island = new int[n][n];
         for(int i=0; i<n; i++){
             for(int j=0; i<n; j++){
                 island[i][j] = sc.nextInt();
