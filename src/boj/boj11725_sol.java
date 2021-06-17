@@ -13,6 +13,7 @@ public class boj11725_sol{
     static ArrayList<Integer>[] graph;
     private static void dfs(int u){
         for(int v : graph[u]){
+            System.out.print("v : "+ v);
             if(!visited[v]){
                 parent[v] = u;
                 visited[v] = true;
