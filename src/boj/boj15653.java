@@ -41,7 +41,6 @@ public class boj15653 {
                 if(nx >=0 && nx <n && ny >= 0 && ny<m && graph[nx][ny] != "#"){
                     dis[nx][ny] = 1;
                     Q.offer(new goosle(nx, ny));
-                    dis[nx][ny] = dis[tmp.x][tmp.y]+1;
                 }
             }
         }
