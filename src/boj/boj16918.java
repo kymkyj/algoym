@@ -43,23 +43,38 @@ class BombPos{ // 폭탄 위치 지정해주기위한 클래스 선언
 // 1 - 처음 격자판 상태 만들기
 public class boj16918 {
     static int R, C, N; // N이 폭탄 카운트
-    static char[][] board; // 격자판
+    static int time = 1;
+    static char[][] board, result; // 격자판
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, 1, 0, -1};
     static Queue<BombPos> Q = new LinkedList<>(); // 처음 폭탄위치 넣어주기 위해
 
-    public void BFS(){
-
+    // 폭탄과 인접지역들 펑!
+    public void bombShot(){
+        while(!Q.isEmpty()){
+            BombPos tmp = Q.poll();
+            for(int i=0; i<4; i++){
+                int nx = tmp.x + dx[i];
+                int ny = tmp.y + dy[i];
+                if(nx >=0 && nx <R && ny >= 0 && ny<C && result[nx][ny] != time){
+                    board[nx][ny] = 1;
+                    Q.offer(new BombPos(nx, ny));
+//                    result[nx][ny] = result[tmp.x][tmp.y]+1;
+                }
+            }
+        }
     }
 
-    public static void solution(){
+    public static void solution(int time){
 
     }
 
     public static void main(String[] args) throws IOException {
+        boj16918 T = new boj16918();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        board = new char[R][C];
+        board = new char[R+1][C+1];
+        result = new char[R+1][C+1];
         int R = Integer.parseInt(st.nextToken());
         int C = Integer.parseInt(st.nextToken());
         int N = Integer.parseInt(st.nextToken());
@@ -68,9 +83,19 @@ public class boj16918 {
             st = new StringTokenizer(br.readLine());
             for(int j=0; j<C; j++){
                 char tmp = st.nextToken().charAt(j);
-                if(tmp == '0') Q.offer(new BombPos(i, j));
+                if(tmp == '0') {
+                    board[i][j] = '1';
+                    Q.offer(new BombPos(i, j));
+                }
                 board[i][j] = tmp;
             }
         }
+        for(int i=0; i<R; i++){
+            for(int j=0; j<C; j++){
+                System.out.println(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+//        solution(0, board);
     }
 }
