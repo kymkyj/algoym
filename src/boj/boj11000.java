@@ -28,7 +28,7 @@ public class boj11000 {
         // 그렇지 않으면 시작시간 기준 정렬
         Arrays.sort(sooup, (lt, rt) -> lt.start == rt.start ? lt.end - rt.end : lt.start - rt.start);
         pq.offer(sooup[0].end); // 처음 종료시간 3
-        for(int i=0; i<n; i++){
+        for(int i=1; i<n; i++){
             if(pq.peek() <= sooup[i].start){ // end : 3, start 1, 2, 3
                 pq.poll();
             }
