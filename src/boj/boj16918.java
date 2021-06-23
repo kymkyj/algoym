@@ -44,58 +44,89 @@ class BombPos{ // 폭탄 위치 지정해주기위한 클래스 선언
 public class boj16918 {
     static int R, C, N; // N이 폭탄 카운트
     static int time = 1;
-    static char[][] board, result; // 격자판
+    static char[][] board; // 격자판
+    static int [][] result;
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, 1, 0, -1};
     static Queue<BombPos> Q = new LinkedList<>(); // 처음 폭탄위치 넣어주기 위해
 
-    // 폭탄과 인접지역들 펑!
-    public void bombShot(){
+
+    // 최종 - 값 출력
+    public static void solution() {
+        for(int i=0; i<R; i++) {
+            for(int j=0; j<C; j++) {
+                System.out.print(board[i][j]+"");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void bombShot(int x, int y){
+        board[x][y] = '.';
         while(!Q.isEmpty()){
-            BombPos tmp = Q.poll();
             for(int i=0; i<4; i++){
-                int nx = tmp.x + dx[i];
-                int ny = tmp.y + dy[i];
+                int nx = x + dx[i];
+                int ny = y + dy[i];
                 if(nx >=0 && nx <R && ny >= 0 && ny<C && result[nx][ny] != time){
-                    board[nx][ny] = 1;
-                    Q.offer(new BombPos(nx, ny));
-//                    result[nx][ny] = result[tmp.x][tmp.y]+1;
+                    board[nx][ny] = 0;
+                    result[nx][ny] = '.';
                 }
             }
         }
     }
 
-    public static void solution(int time){
+    public static void bombChange() {
+        for(int i=0; i<R; i++) {
+            for(int j=0; j<C; j++) {
+                if(board[i][j] == time) { // 시간이랑 같을 떄까지 폭탄 전진
+                    bombShot(i,j);
+                }
+            }
+        }
+    }
 
+    // 단계 2 - 빈칸 폭탄 만들기
+    public static void bombInstall() {
+        for(int i=0; i<R; i++) {
+            for(int j=0; j<C; j++) {
+                if(board[i][j]=='.') {
+                    board[i][j]='O';
+                    result[i][j] = time+3;
+                }
+            }
+        }
     }
 
     public static void main(String[] args) throws IOException {
         boj16918 T = new boj16918();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        board = new char[R+1][C+1];
-        result = new char[R+1][C+1];
+        board = new char[R][C];
+        result = new int[R][C];
         int R = Integer.parseInt(st.nextToken());
         int C = Integer.parseInt(st.nextToken());
         int N = Integer.parseInt(st.nextToken());
 
-        for(int i=0; i<R; i++){
-            st = new StringTokenizer(br.readLine());
-            for(int j=0; j<C; j++){
-                char tmp = st.nextToken().charAt(j);
-                if(tmp == '0') {
-                    board[i][j] = '1';
+        for(int i=0; i<R; i++) {
+            String t = br.readLine();
+            for(int j=0; j<C; j++) {
+                board[i][j] = t.charAt(j);
+                if(board[i][j]=='O') {
                     Q.offer(new BombPos(i, j));
+                    result[i][j] = 3;
                 }
-                board[i][j] = tmp;
             }
         }
-        for(int i=0; i<R; i++){
-            for(int j=0; j<C; j++){
-                System.out.println(board[i][j] + " ");
+
+        while(time++ < N) {
+            if(time%2==0) {
+                bombInstall();
             }
-            System.out.println();
+            else {
+                bombChange();
+            }
         }
+        solution();
 //        solution(0, board);
     }
 }
