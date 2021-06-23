@@ -98,21 +98,42 @@ public class boj16918 {
     }
 
     public static void main(String[] args) throws IOException {
-        boj16918 T = new boj16918();
+//        boj16918 T = new boj16918();
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        StringTokenizer st = new StringTokenizer(br.readLine());
+//        board = new char[R][C];
+//        result = new int[R][C];
+//        int R = Integer.parseInt(st.nextToken());
+//        int C = Integer.parseInt(st.nextToken());
+//        int N = Integer.parseInt(st.nextToken());
+//
+//        for(int i=0; i<R; i++) {
+//            String t = br.readLine();
+//            for(int j=0; j<C; j++) {
+//                board[i][j] = t.charAt(j);
+//                if(board[i][j]=='O') {
+//                    Q.offer(new BombPos(i, j));
+//                    result[i][j] = 3;
+//                }
+//            }
+//        }
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        String [] input = br.readLine().split(" ");
+
+        R = Integer.parseInt(input[0]);
+        C = Integer.parseInt(input[1]);
+        N = Integer.parseInt(input[2]);
+
         board = new char[R][C];
         result = new int[R][C];
-        int R = Integer.parseInt(st.nextToken());
-        int C = Integer.parseInt(st.nextToken());
-        int N = Integer.parseInt(st.nextToken());
-
         for(int i=0; i<R; i++) {
             String t = br.readLine();
             for(int j=0; j<C; j++) {
                 board[i][j] = t.charAt(j);
                 if(board[i][j]=='O') {
-                    Q.offer(new BombPos(i, j));
+                    Q.add(new BombPos(i,j));
                     result[i][j] = 3;
                 }
             }
