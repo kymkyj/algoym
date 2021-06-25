@@ -17,25 +17,32 @@ import java.util.StringTokenizer;
 public class boj13305 {
     static int meterSum = 0; // 총 가야할 거리
     static int[] gas, meter;
-    public static int solution(int n, int [] gas){
-        int answer = 0;
+    public static Long solution(int n, int [] meter, int [] gas){
+        long answer = 0;
+        long minCost = gas[0];	// 이전 까지의 과정 중 주유 최소 비용
 
+        for(int i = 0; i < n-1; i++) {
+            if(gas[i] < minCost) {
+                minCost = gas[i];
+            }
+
+            answer += (minCost * meter[i]);
+        }
         return answer;
     }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine()); // 주유소 갯수
-        StringTokenizer st = new StringTokenizer(br.readLine());
         meter = new int[n-1];
         gas = new int[n];
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for(int i=0; i<n-1; i++){
-
+            meter[i] = Integer.parseInt(st.nextToken());
         }
-
         st = new StringTokenizer(br.readLine());
         for(int i=0; i<n; i++){
             gas[i] = Integer.parseInt(st.nextToken());
         }
-        System.out.println(solution(n, gas));
+        System.out.println(solution(n, meter, gas));
     }
 }
