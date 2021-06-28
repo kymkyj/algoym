@@ -25,8 +25,7 @@ public class boj1667 {
     static int [] dy = {0, 1, 0, -1};
     static int [][] dangi, ch;
     static ArrayList<Integer> list = new ArrayList<>();
-    public void DFS(int x, int y){
-        dangi[x][y] = 0;
+    public static void DFS(int x, int y){
         ch[x][y] = 1; // 간 단지 체크
         if(x == n && y == n) totalCnt++;
         else{
@@ -48,19 +47,23 @@ public class boj1667 {
 
     public static void main(String[] args) throws IOException {
         boj1667 T = new boj1667();
-        Scanner sc = new Scanner(System.in);
-        n = sc.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        n = Integer.parseInt(br.readLine());
         dangi = new int[n][n];
         ch = new int[n][n];
         for(int i=0; i<n; i++){
-            String tmp = sc.next();
+            String tmp = br.readLine();
             for(int j=0; i<n; j++){
-                dangi[i][j] = sc.nextInt();
+                dangi[i][j] = tmp.charAt(j) - '0';
             }
         }
-        T.DFS(0, 0);
-        for(int i : list){
-            System.out.println(i);
+        for(int i=0; i<n; i++){
+            for(int j=0; j<n; j++){
+                if(dangi[i][j] == 1 && ch[i][j] != 1){
+                    dangiCnt++;
+                    DFS(i,j);
+                }
+            }
         }
     }
 }
