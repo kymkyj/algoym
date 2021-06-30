@@ -22,7 +22,6 @@ class boj2293_sol {
                 dp[j] = dp[j] + dp[j - coin[i]];
             }
         }
-
         System.out.println(dp[k]);
     }
 }
