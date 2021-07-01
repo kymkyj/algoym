@@ -17,6 +17,10 @@ import java.util.StringTokenizer;
     3 4 3 4
     1 1 4 4
  */
+// N범위만큼 계산해서 2차원배열 만들어서 board 만들기
+// 어레이 리스트 안에 Gugan 클래스로 x값 y값 담아서 넣기
+// 이중 for문돌면서 어레이 리스트에서 꺼내와서 첫번째 x에서 두번째 x값 까지
+// 다음 for문에서 첫번째 y에서 두번째 y까지 돌면서 board에서 값 찾아서 더하기
 class Gugan {
     public int x, y;
     Gugan(int x, int y){
@@ -51,7 +55,7 @@ public class boj11660 {
                 int tmpX = Integer.parseInt(st.nextToken());
                 int tmpY = Integer.parseInt(st.nextToken());
                 System.out.println(tmpX + ' ' + tmpY);
-//                list.add(new Gugan(tmpX, tmpY));
+                list.add(new Gugan(tmpX, tmpY));
             }
         }
     }
