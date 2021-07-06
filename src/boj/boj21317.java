@@ -18,14 +18,18 @@ public class boj21317 {
     static int n, k;
     static int [][] bridge;
     static int answer = Integer.MAX_VALUE;
-    public void DFS(int L, int sum){
-        if(L > n) return;
+    public void DFS(int L, int sum, boolean jump){
+        if(L > n) return; // L이 마지막 돌보다 커지면 안됨으로 return
+        if(!jump){
+            DFS(L+3, sum + k, true);
+        }
         if(L == n){
             answer = Math.min(answer, sum);
             return;
         }else{
-            DFS(L, sum + bridge[L][0]);
-            DFS(L, sum + bridge[L][1]);
+            // L에 +1해주고 +2해주는 부분이 이해가 잘안됨
+            DFS(L+1, sum + bridge[L][0], jump);
+            DFS(L+2, sum + bridge[L][1], jump);
         }
     }
     public static void main(String[] args) throws IOException {
@@ -39,7 +43,8 @@ public class boj21317 {
             bridge[i][0] = Integer.parseInt(st.nextToken());
             bridge[i][1] = Integer.parseInt(st.nextToken());
         }
-        T.DFS(1, 0); // 1번 돌부터 시작한다고 한거랑 0은 합계
+        k = Integer.parseInt(br.readLine());
+        T.DFS(1, 0, false); // 1번 돌부터 시작한다고 한거랑 0은 합계
         System.out.println(answer);
     }
 }
