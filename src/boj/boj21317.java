@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// 징검다리 건너기(DP)
+// 징검다리 건너기(DFS)
 /*
     5      ->   5
     1 2
