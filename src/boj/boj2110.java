@@ -30,13 +30,13 @@ public class boj2110 {
         Arrays.sort(arr);
         lt = 1; //최소 길이
         rt = arr[n - 1] - arr[0];// 최대 길이
-        while (lt <= rt) {
-            int mid = (lt + rt) / 2; //공유기 거리 기준
-            int firstModem = arr[0]; //첫 위치에 설치
+        while (lt <= rt) { // 3 < 4
+            int mid = (lt + rt) / 2; // 공유기를 몇단계마다 설치할 지 확인하는 중간 값
+            int firstModem = arr[0]; // 첫 위치에는 무조건 설치해야함
             int count = 1; //공유기 설치 개수
             for (int i = 0; i < n; i++) {
-                int distance = arr[i] - firstModem;
-                if (distance >= mid) { //거리차가 기준보다 이상되야 설치 가능
+                int dis = arr[i] - firstModem;
+                if (dis >= mid) { //거리차가 기준보다 이상되야 설치 가능
                     count++;
                     firstModem = arr[i];
                 }
