@@ -26,8 +26,8 @@ public class bojStartLink {
         Q.add(S); // 처음에 1들어감
         while(!Q.isEmpty()){
             click++;
-            int tmp = Q.size();
-            for(int i=0; i<tmp; i++){
+            int len = Q.size();
+            for(int i=0; i<len; i++){
                 int floor = Q.poll(); // 현재 위치
                 if(floor == G){
                     answer = click;
@@ -35,6 +35,7 @@ public class bojStartLink {
                 }else{
                     Q.add(floor + U);
                     Q.add(floor - D);
+                    click++;
                 }
             }
         }
