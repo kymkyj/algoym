@@ -31,9 +31,9 @@ public class bojSevenNanJangE {
     static int [] arr;
     static int sum = 100;
     static int total = 0;
+    static boolean ch = false;
 
     public static void main(String[] args) throws IOException {
-        bojSevenNanJangE T = new bojSevenNanJangE();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = null;
         arr = new int [9];
@@ -47,8 +47,10 @@ public class bojSevenNanJangE {
                 if(total - (arr[i] + arr[j]) == sum){
                     arr[i] = 0;
                     arr[j] = 0;
+                    ch = true;
                     break;
                 }
+                if(ch) break;
             }
         }
         Arrays.sort(arr);
