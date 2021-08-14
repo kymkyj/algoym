@@ -28,8 +28,8 @@ public class bojSevenPrincess {
     static int [] dx = {-1, 0, 1, 0};
     static int [] dy = {0, 1, 0, -1};
 
-    public void DFS(int L, int x, int y, char [][] map){
-        if(L == 7) answer++;
+    public void DFS(int L, int x, int y, int ycnt,  char [][] map){
+        if(L == 7 && ycnt < 4) answer++;
         else{
             for(int i=0; i<4; i++){
                 int nx = dx[i] + x;
@@ -50,6 +50,6 @@ public class bojSevenPrincess {
                 map[i][j] = input.charAt(j);
             }
         }
-        T.DFS(1,0, 0, map);
+        T.DFS(1,0, 0, 0, map);
     }
 }
