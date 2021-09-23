@@ -23,5 +23,8 @@ public class bojZero {
         Stack<Integer> stack = new Stack<>(); // 최근꺼를 빼줘야하니까?
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int K = Integer.parseInt(br.readLine());
+        for(int i=0; i<K; i++){
+            
+        }
     }
 }
